@@ -1,0 +1,142 @@
+Ensemble des descriptions des tests
+
+***************************************************************************
+Test1
+Exécution du programme sans options.
+Vérification du bon affichage du classement dans le cas où le fichier log comporte plus de 10 documents cibles.
+
+***************************************************************************
+Test2
+Exécution du programme sans options.
+Vérification du bon affichage du classement dans le cas où le fichier log comporte moins de 10 documents cibles : affichage d'un message d'avertissement spécifique.
+
+***************************************************************************
+Test3
+Exécution sans option d'un fichier log vide.
+Cela doit conduire à la génération d'un message d'erreur indiquant que le fichier log est vide, qu'il n'y a pas de statistiques à générer, et rediriger l'utilisateur vers l'aide pour relire les instructions d'utilisation de l'application.
+
+***************************************************************************
+Test4
+Lancement du programme sans instructions ni fichier log.
+Cela doit conduire à la génération d'un message d'erreur indiquant qu'il n'y a pas assez d'arguments, et rediriger l'utilisateur vers l'aide pour relire les instructions d'utilisation de l'application.
+
+***************************************************************************
+Test5
+Exécution du programme sans options avec un fichier.log introuvable.
+Affichage d'un avertissement et invitation à consulter l'aide.
+
+***************************************************************************
+Test6
+Exécution du programme avec l'option -e.
+Cela doit afficher le classement des cibles sans extensions js, css ou image. Le filtrage du résultat doit être spécifié.
+
+***************************************************************************
+Test7
+Exécution du programme avec l'option -e où le filtrage conduit à un résultat nul
+Ce test va analyser un fichier log qui ne contient que des cibles avec des extensions js, css ou image. Il va explicitement annoncer à l'utilisateur l'absence de classement en raison de ses choix de filtrage.
+
+***************************************************************************
+Test8
+Exécution du programme avec l'option -e sans le fichier.log
+En cas d'absence du fichier.log, un message d'erreur est généré en rappelant la bonne syntaxe et en suggérant l'option help qui permet de générer l'aide.
+
+***************************************************************************
+Test9
+Exécution du programme avec l'option -t.
+Ce test permet de vérifier le top 10 lorsque l'on choisit une plage horaire spécifique, dans le cas où l'appel a bien été effectué.
+
+***************************************************************************
+Test10
+Exécution du programme avec l'option -t.
+Ce test indique une heure qui conduit à un résultat nul du fait que le fichier log ne contient pas de hits dans la plage horaire indiquée.
+Le programme affiche que le filtrage a produit un résultat nul.
+
+***************************************************************************
+Test11
+Exécution du programme avec l'option -t.
+Ce test va utiliser une heure qui n'est pas valable, car non comprise dans l'intervalle [0;23].
+Le programme va donc générer un message d'erreur rappelant cet intervalle et suggérant la commande qui fait appel à l'aide.
+
+***************************************************************************
+Test12
+Exécution du programme avec l'option -t.
+Ce test va utiliser des caractères non valides pour l'heure.
+Le programme va donc générer un message d'erreur rappelant que l'horaire est un entier et suggérant la commande qui fait appel à l'aide.
+
+***************************************************************************
+Test13
+Exécution du programme avec l'option -e.
+Ce test utilise l'option -e deux fois afin de vérifier l'affichage d'une erreur. Un message d'erreur est généré pour rappeler la bonne syntaxe et suggérer la commande pour faire appel à l'aide.
+Par ailleurs cette vérification a aussi été effectuée de notre côté pour toutes les autres options ; nous n'avons pas instancié de tests correspondants car le même phénomène se produit à chaque fois.
+
+***************************************************************************
+Test14
+Exécution du programme avec les options -e et -t.
+Test permettant de vérifier un affichage correct du top 10 en fonction des options qui filtrent certaines extensions et qui ciblent une plage horaire.
+En outre, le programme va signaler le choix de chacune de ces options.
+
+***************************************************************************
+Test15
+Execution du programme avec l'option -g.
+Ce test nous permet de vérifier l'affichage correct du top10 ainsi que la création du fichier .dot associé.
+Le programme va signaler ce choix et confirmer la création du fichier .dot. Il explique rapidement sa structure et suggère la commande qui permet de créer l'image png associée.
+
+***************************************************************************
+Test16
+Exécution du programme avec l'option -g.
+Test effectué sans donner de fichier.dot en paramètre.
+Le programme va donc rappeler la bonne syntaxe associée à cette extension et suggérer la commande pour générer l'aide.
+
+***************************************************************************
+Test17
+Exécution du programme avec les options -g et -e.
+Test permettant de vérifier que le classement du top10 est correctement filtré et que le fichier .dot est bien généré.
+Chaque option choisie est affichée.
+
+***************************************************************************
+Test18
+Exécution du programme avec l'option -g et un fichier.dot dont le nom donné par l'utilisateur existe déja.
+Ce test permet de vérifier si le programme donne à l'utilisateur le choix entre l'écrasement du fichier.dot existant ou l'abandon de l'écriture. Puis l'utilisateur décide d'écraser les données.
+
+***************************************************************************
+Test19
+Exécution du programme avec l'option -g et un fichier.dot dont le nom donné par l'utilisateur existe déja.
+Ce test permet de vérifier si le programme donne à l'utilisateur le choix entre l'écrasement du fichier.dot existant ou l'abandon de l'écriture. Puis l'utilisateur décide d'abandonner la génération du graphe.
+
+***************************************************************************
+Test20
+Exécution du programme avec les options -e -g.
+Test permettant de vérifier la génération d'un fichier.dot ainsi que l'affichage du top 10 selon l'option -e.
+En outre, le programme rappelle les indications correspondant au choix de chaque option.
+
+***************************************************************************
+Test21
+Exécution du programme avec les options -t -g.
+On vérifie la génération d'un fichier.dot ainsi que l'affichage du top 10 selon l'option -t.
+On vérifie également que le programme précise le choix de chaque option de filtrage.
+
+***************************************************************************
+Test22
+Exécution du programme avec les options -t -g et -e en même temps.
+On vérifie la génération d'un fichier.dot ainsi que l'affichage du top 10 selon les filtrages induits par les options -e et -t.
+On s'assure que le programme indique bien tous les choix d'options.
+
+***************************************************************************
+Test23
+Exécution du programme avec les options -t -g et -e dans le cas d'un filtrage qui conduit à un résultat nul.
+Le test indique les options de filtrage, ainsi que le fait que le résultat soit nul.
+
+***************************************************************************
+Test24
+Exécution du programme sans options, avec un fichier .txt au lieu d'un fichier .log .
+Affichage d'un message d'erreur et redirection de l'utilisateur vers l'aide.
+
+***************************************************************************
+Test25
+Exécution du programme avec l'option -h.
+Cela doit afficher l'aide.
+
+***************************************************************************
+Test26
+Exécution du programme avec l'option -h et une autre option.
+Cela doit afficher une erreur indiquant que l'utilisateur a mal entré la commande pour afficher l'aide, et lui indiquer la bonne commande à entrer.
